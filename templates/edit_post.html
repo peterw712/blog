@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ post and 'Edit Post' or 'Add New Post' }}</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ post and post[1] or '' }}" required>
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" name="content" rows="10" required>{{ post and post[2] or '' }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-success">{{ post and 'Update' or 'Add' }}</button>
+</form>
+{% endblock %}
